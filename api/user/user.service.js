@@ -76,7 +76,8 @@ module.exports={
       )
 
     },
-
+   
+    //for login function
     getUserByEmail:(email,callBack)=>{
         console.log(email)
         pool.query(

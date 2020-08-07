@@ -27,7 +27,8 @@ module.exports={
                 console.log(err);
                 return res.status(500).json({
                     success:0,
-                    msg:'Database  error'
+                    msg:"Internal server error(In database)",
+                    sqlMessage:err.sqlMessage
                 })
             }
             else{
@@ -48,7 +49,8 @@ module.exports={
                 console.log(err);
                 return res.status(500).json({
                     success:0,
-                    msg:'Database  error'
+                    msg:"Internal server error(In database)",
+                    sqlMessage:err.sqlMessage
                 })
             }
             if(!results){
@@ -72,7 +74,8 @@ module.exports={
             if(err){
                 return res.status(500).json({
                     success:0,
-                    msg:'Database  error'
+                     msg:"Internal server error(In database)",
+                     sqlMessage:err.sqlMessage
                 })
             }
             return res.json({
@@ -93,7 +96,8 @@ module.exports={
                 console.log(err)
                 return res.status(500).json({
                     success:0,
-                    msg:'Database  error'
+                    msg:"Internal server error(In database)",
+                    sqlMessage:err.sqlMessage
                 })
             }
             //console.log(results)
@@ -119,7 +123,8 @@ module.exports={
                 console.log(err)
                 return res.status(500).json({
                     success:0,
-                    msg:'Database  error'
+                    msg:"Internal server error(In database)",
+                    sqlMessage:err.sqlMessage
                 })
             }
           //  console.log(results)
@@ -147,7 +152,8 @@ module.exports={
                 console.log(err)
             return res.status(500).json({
                     success:0,
-                    msg:'Database error'
+                    msg:"Internal server error(In database)",
+                    sqlMessage:err.sqlMessage
                 })
             }
          if(!results){
