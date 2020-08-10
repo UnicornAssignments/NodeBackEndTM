@@ -1,4 +1,5 @@
 const pool=require('../../config/database');
+const { poolPromise }=require('../../config/MssqlDB');
 
 module.exports={
 
@@ -40,7 +41,7 @@ module.exports={
         })
     },
 
-    getSubjectById:(id,callBack)=>{
+   /* getSubjectById:(id,callBack)=>{
         pool.query(`select * from subject where sub_id=?`,
         [id],
         (err,results,fields)=>{
@@ -49,7 +50,21 @@ module.exports={
             }
             return callBack(null,results)
         })
-    },    
+    },    */
+
+    getSubjectById:(async(id,callBack) => {
+        try {
+          const pool =  await poolPromise
+          const result = await pool.request()
+          //const result=new pool.Request()
+            .input('id', id)
+            .query('select * from subject where id=@id');  
+      
+        return callBack(null,result)
+        } catch (err) {
+            return callBack(err)
+        }
+      }),
 
    
     updateSubject:(data,callBack)=>{

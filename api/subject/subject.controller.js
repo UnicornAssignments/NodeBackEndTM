@@ -63,7 +63,7 @@ module.exports={
 
     getSubjectById:(req,res)=>{
             const id=req.params.id
-           // console.log(id)
+            console.log("Work");
             getSubjectById(id,(err,results)=>{
                 if(err){
                     console.log(err);
